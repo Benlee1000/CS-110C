@@ -22,37 +22,29 @@ int ksmallSolution::kSmallPartition(arrayTracker* unsortedArray)
 {
 	int pivotValue = unsortedArray->getItem(0);
   int pivotIndex = 0;
-  int i = 1;
-  cout << "Array before sorting: \n";
-  unsortedArray->displayArray();
+  int temp;
+  // cout << "Array before sorting: \n";
+  // unsortedArray->displayArray();
 
-  while(i < unsortedArray->getSize()) {
-    
-    //if a value in the array is smaller than the pivot value, and comes after it in the array, swap them
-    if((unsortedArray->getItem(i) < pivotValue) && (i > pivotIndex)) {
-      this->arraySwap(unsortedArray, i, pivotIndex);
-      pivotIndex = i;
-      i = 0; //go back to beginning of array
-      //cout << "array after less pivot:\n"; 
-      //unsortedArray->displayArray();
-      
+  // increment through array, starting at position after the intial pivot index
+  for(int i = 1; i < unsortedArray->getSize(); i++) {
+    // if an item is smaller, store it in temp
+    // then move all values before that to the right using the swap method
+    if(unsortedArray->getItem(i) < pivotValue) {
+      temp = unsortedArray->getItem(i);
+      for(int j = i; j > pivotIndex; j--) {
+        this->arraySwap(unsortedArray, j, j-1);
+      }
+      // place temp in right before the pivot value and increase the pivot index
+      unsortedArray->setItem(pivotIndex, temp);
+      pivotIndex++;
     }
-
-    //else if a value in the array is larger than the pivot value, and comes before the array, swap them 
-    else if((unsortedArray->getItem(i) >= pivotValue ) && (i < pivotIndex)) {
-      this->arraySwap(unsortedArray, i, pivotIndex);
-      pivotIndex = i;
-      i = 0; //go back to begining of array
-      //cout << "array after more pivot:\n"; 
-      //unsortedArray->displayArray();
-    }
-    i++; //increment through the array if there are no numbers out of place
-    
   }
-  cout << "Array after sorting: \n";
-  unsortedArray->displayArray();
+  // cout << "Array after sorting: \n";
+  // unsortedArray->displayArray();
+
   
-  return 0;
+  return pivotIndex;
 }
 
 #endif /* KSMALL_SOLUTION_CPP */
