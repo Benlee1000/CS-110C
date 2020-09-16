@@ -27,7 +27,7 @@ int main() {
   int testCaseSize = 10;
   int testCaseRuns = 10;
   int value;
-  int kValue = 10;
+  int kValue = 1;
   
   //int score;
   //int scoreAverage = 0;
