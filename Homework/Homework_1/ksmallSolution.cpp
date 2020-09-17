@@ -28,7 +28,7 @@ int ksmallSolution::kSmallPartition(arrayTracker* unsortedArray, int first, int 
   // unsortedArray->displayArray();
 
   // increment through array, starting at position after the intial pivot index
-  for(int i = first + 1; i < last; i++) {
+  for(int i = first + 1; i <= last; i++) {
     // if an item is smaller, store it in temp
     // then move all values before that to the right using the swap method
     if(unsortedArray->getItem(i) < pivotValue) {
@@ -49,6 +49,8 @@ int ksmallSolution::kSmallPartition(arrayTracker* unsortedArray, int first, int 
 
 int ksmallSolution::kSmall(int k, arrayTracker* unsortedArray, int first, int last)
 {
+  // unsortedArray->displayArray();
+  // cout << first << " "<< last << "\n";
   int pivotIndex = this->kSmallPartition(unsortedArray, first, last);
   int pivotValue = unsortedArray->getItem(pivotIndex);
 

@@ -27,7 +27,7 @@ int main() {
   int testCaseSize = 10;
   int testCaseRuns = 10;
   int value;
-  int kValue = 1;
+  int kValue = 5;
   
   //int score;
   //int scoreAverage = 0;
@@ -35,7 +35,7 @@ int main() {
   for(int i=0; i<testCaseRuns; i++) {
     arrayTracker* test;
     test = new arrayTracker(testCaseSize, i+1);
-    value = temp.kSmall(kValue, test, 0, testCaseSize);
+    value = temp.kSmall(kValue, test, 0, testCaseSize-1);
     cout << "The "<< kValue << "th smallest value in the array is: " << value << "\n\n";
     delete test;
   }
