@@ -1,0 +1,2 @@
+ksmall: main.cpp arrayTracker.cpp ksmallRuleChecker.cpp ksmallSolution.cpp ksmallTester.cpp 
+	g++ ksmall main.cpp arrayTracker.cpp ksmallRuleChecker.cpp ksmallSolution.cpp ksmallTester.cpp -o ksmallPartition.exe
