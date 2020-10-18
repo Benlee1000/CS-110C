@@ -21,7 +21,7 @@ int main() {
     cout << "Enter a number, -1 to quit: ";
     cin >> fibNum;
 
-    while (fibNum != 1) {
+    while (fibNum != -1) {
         
         finalNum = findFibonacci(fibNum);
         cout << "The " << fibNum << " number of the fibonacci sequence is " << finalNum << endl;

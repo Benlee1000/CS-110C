@@ -1,0 +1,11 @@
+palindrome: main.exe studentSolution.exe
+	g++ main.exe studentSolution.exe -o palindrome
+
+main.exe: main.cpp
+	g++ main.cpp
+
+studentSolution.exe: studentSolution.cpp
+	g++ studentSolution.cpp
+
+clean:
+	rm *.exe palindrome
