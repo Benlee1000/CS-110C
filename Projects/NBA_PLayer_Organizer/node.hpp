@@ -1,6 +1,8 @@
 #ifndef _NODE
 #define _NODE
 
+#include <string>
+
 class Node {
 private:   
   string playerName; 
