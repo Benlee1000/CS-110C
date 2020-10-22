@@ -4,16 +4,16 @@
 
 using namespace std;
 
-Node<string>* LinkedSortedList<string>::copyChain( const Node<string>* origChainPtr)
+Node<Player>* LinkedSortedList<Player>::copyChain( const Node<Player>* origChainPtr)
 {
-  Node<string>* copiedChainPtr;
+  Node<Player>* copiedChainPtr;
   if (origChainPtr == nullptr) {
     copiedChainPtr = nullptr;
     itemCount = 0;
   }
   else {
     // Build new chain from given one
-    Node<string>* copiedChainPtr = new Node<string>(origChainPtr->getItem());
+    Node<Player>* copiedChainPtr = new Node<Player>(origChainPtr->getItem());
     copiedChainPtr->setNext(copyChain(origChainPtr->getNext()));
     itemCount++;
   } // end if
@@ -21,9 +21,9 @@ Node<string>* LinkedSortedList<string>::copyChain( const Node<string>* origChain
   return copiedChainPtr;
 } // end copyChain 
 
-LinkedSortedList<string>::LinkedSortedList() {
+LinkedSortedList<Player>::LinkedSortedList() {
 }
 
-LinkedSortedList<string>::LinkedSortedList(const LinkedSortedList<string>& aList) {
+LinkedSortedList<Player>::LinkedSortedList(const LinkedSortedList<Player>& aList) {
   headPtr = copyChain(aList.headPtr); 
 }

@@ -1,70 +1,70 @@
-#include "node.hpp"
+#include "Node.hpp"
+#include "Player.hpp"
 #include <iostream>
+
 using namespace std;
 
-Node<string>::Node() : next(nullptr) {
+Node<Player>::Node() : next(nullptr) {
 } // end default constructor
 
 
-Node<string>::Node(const string& playerName, const string& playerTeamName, const int& playerPointsPerGame, const int& playerReboundsPerGame, const int& playerAssistsPerGame) : name(playerName), teamName(playerTeamName), pointsPerGame(playerPointsPerGame), reboundsPerGame(playerReboundsPerGame), assistsPerGame(playerAssistsPerGame), next(nullptr)
-{
+Node<Player>::Node(const string& playerName, const string& playerTeamName, const int& playerPointsPerGame, const int& playerReboundsPerGame, const int& playerAssistsPerGame) : name(playerName), teamName(playerTeamName), pointsPerGame(playerPointsPerGame), reboundsPerGame(playerReboundsPerGame), assistsPerGame(playerAssistsPerGame), next(nullptr) {
 } // end constructor
 
-Node<ItemType>::Node(const string& playerName, const string& playerTeamName, const int& playerPointsPerGame, const int& playerReboundsPerGame, const int& playerAssistsPerGame, Node<string>* nextNodePtr) : name(playerName), teamName(playerTeamName), pointsPerGame(playerPointsPerGame), reboundsPerGame(playerReboundsPerGame), assistsPerGame(playerAssistsPerGame), next(nextNodePtr)
-{
+Node<Player>::Node(const string& playerName, const string& playerTeamName, const int& playerPointsPerGame, const int& playerReboundsPerGame, const int& playerAssistsPerGame, Node<Player>* nextNodePtr) : name(playerName), teamName(playerTeamName), pointsPerGame(playerPointsPerGame), reboundsPerGame(playerReboundsPerGame), assistsPerGame(playerAssistsPerGame), next(nextNodePtr) { 
 } // end constructor
  
-void Node<string>::setName(const string& playerName) {
- name = playerName;
-} // end setName
+void Node<Player>::setPlayerName(const string& playerName) {
+  nodePlayer->setName(playerName);
+} // end setPlayerName
 
-void Node<string>::setTeamName(const string& playerTeamName) {
- teamName = playerTeamName;
-} // end setTeamName
+void Node<Player>::setPlayerTeamName(const string& playerTeamName) {
+  nodePlayer->setTeamName(playerTeamName);
+} // end setPlayerTeamName
 
-void Node<string>::setPointsPerGame(const int& playerPointsPerGame) {
- pointsPerGame = playerPointsPerGame;
-} // end setPointsPerGame
+void Node<Player>::setPlayerPointsPerGame(const int& playerPointsPerGame) {
+  nodePlayer->setPointsPerGame(playerPointsPerGame);
+} // end setPlayerPointsPerGame
 
-void Node<string>::setReboundsPerGame(const int& playerReboundsPerGame) {
- reboundsPerGame = playerReboundsPerGame;
-} // end setReboundsPerGame
+void Node<Player>::setPlayerReboundsPerGame(const int& playerReboundsPerGame) {
+  nodePlayer->setReboundsPerGame(playerReboundsPerGame);
+} // end setPlayerReboundsPerGame
 
-void Node<string>::setAssistsPerGame(const int& playerAssistsPerGame) {
- assistsPerGame = playerAssistsPerGame;
-} // end setAssistsPerGame
+void Node<Player>::setPlayerAssistsPerGame(const int& playerAssistsPerGame) {
+  nodePlayer->setAssistsPerGame(playerAssistsPerGame);
+} // end setPlayerAssistsPerGame
  
-void Node<string>::setNext(Node<string>* nextNodePtr)
+void Node<Player>::setNext(Node<Player>* nextNodePtr)
 {
  next = nextNodePtr;
 } // end setNext
  
-string Node<string>::getName() const
+string Node<Player>::getPlayerName() const
 {
- return name;
-} // end getName
+ return nodePlayer->getName();
+} // end getPlayerName
 
-string Node<string>::getTeamName() const
+string Node<Player>::getPlayerTeamName() const
 {
- return teamName;
-} // end getTeamName
+ return nodePlayer->getTeamName();
+} // end getPlayerTeamName
 
-int Node<string>::getPoitsPerGame() const
+int Node<Player>::getPlayerPoitsPerGame() const
 {
- return pointsPerGame;
-} // end getPointsPerGame
+ return nodePlayer->getPointsPerGame();
+} // end getPlayerPointsPerGame
 
-int Node<string>::getReboundsPerGame() const
+int Node<Player>::getPlayerReboundsPerGame() const
 {
- return reboundPerGame;
-} // end getReboundsPerGame
+ return nodePlayer->getReboundsPerGame();
+} // end getPlayerReboundsPerGame
 
-int Node<string>::getAssistsPerGame() const
+int Node<Player>::getPlayerAssistsPerGame() const
 {
- return assistsPerGame;
-} // end getAssistsPerGame
+ return nodePlayer->getAssistsPerGame();
+} // end getPlayerAssistsPerGame
  
-Node<string>* Node<string>::getNext() const
+Node<Player>* Node<Player>::getNext() const
 {
  return next;
 } // end getNext 

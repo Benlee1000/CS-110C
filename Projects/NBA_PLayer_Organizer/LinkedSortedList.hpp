@@ -4,13 +4,13 @@
 #include "SortedListInterface.hpp"
 #include "Node.hpp"
 #include "PrecondViolatedExcep.hpp"
-#include <string>
+#include "Player.hpp"
+#include <iostream>
 
 
-class LinkedSortedList : public SortedListInterface<ItemType>
-{
+class LinkedSortedList : public SortedListInterface<Player> {
 private:
-  Node<string>* headPtr; // Pointer to first node in the chain
+  Node<Player>* headPtr; // Pointer to first node in the chain
   int itemCount; // Current count of list items
 
  // Locates the node that is before the node that should or does
@@ -18,15 +18,15 @@ private:
  // @param anEntry The entry to find.
  // @return Either a pointer to the node before the node that contains
  // or should contain the given entry, or nullptr if no prior node exists.
-  Node<string>* getNodeBefore( const string& anEntry) const;
+  Node<Player>* getNodeBefore(const string& anEntry) const;
 
   // Locates the node at a given position within the chain.
-  Node<string>* getNodeAt( int position) const;
+  Node<Player>* getNodeAt(int position) const;
 
   // Returns a pointer to a copy of the chain to which origChainPtr points.
-  Node<string>* copyChain( const Node<string>* origChainPtr);
+  Node<Player>* copyChain(const Node<Player>* origChainPtr);
 
 public:
   LinkedSortedList();
-  LinkedSortedList(const LinkedSortedList<string>& aList);
+  LinkedSortedList(const LinkedSortedList<Player>& aList);
   virtual ~LinkedSortedList(); 
