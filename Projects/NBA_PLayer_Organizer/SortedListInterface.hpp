@@ -1,6 +1,7 @@
 #ifndef _SORTED_LIST_INTERFACE
 #define SORTED_LIST_INTERFACE
-template< class ItemType>
+
+template<class ItemType>
 class SortedListInterface {
 public:
   /** Inserts an entry into this sorted list in its proper order
@@ -8,7 +9,7 @@ public:
   @pre None.
   @post newEntry is in the list, and the list is sorted.
   @param newEntry The entry to insert into the sorted list. */
-  virtual void insertSorted( const ItemType& newEntry) = 0;
+  virtual void insertSorted(const ItemType& newEntry) = 0;
 
   /** Removes the first or only occurrence of the given entry from this
    sorted list.
@@ -19,7 +20,7 @@ public:
   returned value is false.
   @param anEntry The entry to remove.
   @return True if removal is successful, or false if not. */
-  virtual bool removeSorted( const ItemType& anEntry) = 0;
+  virtual bool removeSorted(const ItemType& anEntry) = 0;
 
   /** Gets the position of the first or only occurrence of the given
    entry in this sorted list. In case the entry is not in the list,
@@ -31,7 +32,7 @@ public:
   @return Either the position of the given entry, if it occurs in the
   sorted list, or the position where the entry would occur, but as a
   negative integer. */
-  virtual int getPosition( const ItemType& anEntry) = 0;
+  virtual int getPosition(const ItemType& anEntry) = 0;
 
   /** Sees whether this list is empty. */
   virtual bool isEmpty() const = 0;
@@ -40,13 +41,13 @@ public:
   virtual int getLength() const = 0;
 
   /** Removes the entry at a given position from this list. */
-  virtual bool remove( int position) = 0;
+  virtual bool remove(int position) = 0;
 
   /** Removes all entries from this list. */
   virtual void clear() = 0;
 
   /** Gets the entry at the given position in this list. */
-  virtual ItemType getEntry( int position) const = 0;
+  virtual ItemType getEntry(int position) const = 0;
 
 }; // end SortedListInterface
 #endif 

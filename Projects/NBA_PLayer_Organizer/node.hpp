@@ -25,5 +25,5 @@ public:
   Node<Player>* getNext() const;
 }; // end Node
 
-#include "node.cpp"
+
 #endif 

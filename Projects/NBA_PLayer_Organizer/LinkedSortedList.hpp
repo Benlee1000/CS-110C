@@ -30,3 +30,15 @@ public:
   LinkedSortedList();
   LinkedSortedList(const LinkedSortedList<Player>& aList);
   virtual ~LinkedSortedList(); 
+  void insertSorted(const Player& newEntry);
+  bool removeSorted(const Player& anEntry);
+  int getPosition(const PLayer& newEntry) const;
+  // The following methods are the same as given in ListInterface:
+  bool isEmpty() const;
+  int getLength() const;
+  bool remove(int position);
+  void clear();
+  Player getEntry(int position) const throw(PrecondViolatedExcep);
+}; // end LinkedSortedList
+
+#endif
