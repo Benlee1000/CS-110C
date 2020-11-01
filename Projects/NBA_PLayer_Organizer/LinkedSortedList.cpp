@@ -4,17 +4,29 @@
 
 using namespace std;
 
-Node<Player>* LinkedSortedList<Player>::getNodeBefore(const Player& anEntry) const {
+Node<Player>* LinkedSortedList<Player>::getNodeBefore(const string& playerName) const {
   Node<Player>* curPtr = headPtr;
   Node<Player>* prevPtr = nullptr;
 
-  while ((curPtr != nullptr) && (anEntry > curPtr->getItem())) {
+  while ((curPtr != nullptr) && (playerName > curPtr->getPlayerName())) {
     prevPtr = curPtr;
     curPtr = curPtr->getNext();
   } // end while
 
   return prevPtr;
 } // end getNodeBefore 
+
+Node<Player>* LinkedSortedList<Player>::getNodeAt(int position) const {
+  // Debugging check of precondition
+  assert((position >= 1) &&(position <= itemCount));
+  // Count from the beginning of the chain
+  Node<Player>* curPtr = headPtr;
+  for (int skip = 1; skip < position; skip++) {
+    curPtr = curPtr->getNext();
+  }
+    
+  return curPtr ;  
+} // end getNodeAt
 
 Node<Player>* LinkedSortedList<Player>::copyChain(const Node<Player>* origChainPtr)
 {
@@ -25,7 +37,7 @@ Node<Player>* LinkedSortedList<Player>::copyChain(const Node<Player>* origChainP
   }
   else {
     // Build new chain from given one
-    Node<Player>* copiedChainPtr = new Node<Player>(origChainPtr->getItem());
+    Node<Player>* copiedChainPtr = new Node<Player>(origChainPtr->getPlayerName(), origChainPtr->getPlayerTeam(), origChainPtr->getPlayerPointsPerGame(), origChainPtr->getPlayerReboundsPerGame(), origChainPtr->getPlayerAssistsPerGame());
     copiedChainPtr->setNext(copyChain(origChainPtr->getNext()));
     itemCount++;
   } // end if
@@ -60,15 +72,29 @@ void LinkedSortedList<Player>::insertSorted(const Player& newEntry) {
 
   itemCount++;
 } // end insertSorted 
-bool LinkedStack<Player>::isEmpty() const {
+
+bool LinkedSortedList<Player>::removeSorted(const string& player) {
+  return remove(getPositionOfPlayer(player));
+} // end removeSorted
+
+int LinkedSortedList<Player>::getPositionOfPlayer(const string& player) {
+  for(int position = 1, position <= getLength(); position++) {
+    if((getEntry(position)->getName()) == player) {
+      return position;
+    }
+  }
+  return -1;
+} // end getPositionOfPlayer
+
+bool LinkedSortedList<Player>::isEmpty() const {
   return headPtr == nullptr;
 } // end isEmpty 
 
-int LinkedStack<Player>::getLength() const {
+int LinkedSortedList<Player>::getLength() const {
   return itemcount;
-}
+} // end getLength
 
-bool LinkedSortedList<PLayer>::remove(int position) {
+bool LinkedSortedList<Player>::remove(int position) {
   bool ableToRemove = (position >= 1) &&(position <= itemCount);
   if (ableToRemove) {
     Node<Player>* curPtr = nullptr;
@@ -104,4 +130,18 @@ void LinkedSortedList<Player>::clear() {
     remove(1);
   }  
 } // end clear 
+
+Player LinkedSortedList<Player>::getEntry(int position) const throw(PrecondViolatedExcep) {
+  // Enforce precondition
+  bool ableToGet = (position >= 1) &&(position <= itemCount);
+  if (ableToGet) {
+    Node<Player>* nodePtr = getNodeAt(position);
+    return nodePtr->getPlayer();
+  }
+  else {
+    string message = "getEntry() called with an empty list or ";
+    message = message + "invalid position.";
+    throw(PrecondViolatedExcep(message));
+  } // end if
+} // end getEntry 
 

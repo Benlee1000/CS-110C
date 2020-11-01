@@ -38,33 +38,31 @@ void Node<Player>::setNext(Node<Player>* nextNodePtr)
 {
  next = nextNodePtr;
 } // end setNext
+
+Player Node<Player>::getPlayer() const {
+  return nodePlayer;
+}
  
-string Node<Player>::getPlayerName() const
-{
- return nodePlayer->getName();
+string Node<Player>::getPlayerName() const {
+  return nodePlayer->getName();
 } // end getPlayerName
 
-string Node<Player>::getPlayerTeamName() const
-{
- return nodePlayer->getTeamName();
+string Node<Player>::getPlayerTeamName() const {
+  return nodePlayer->getTeamName();
 } // end getPlayerTeamName
 
-int Node<Player>::getPlayerPoitsPerGame() const
-{
- return nodePlayer->getPointsPerGame();
+int Node<Player>::getPlayerPoitsPerGame() const {
+  return nodePlayer->getPointsPerGame();
 } // end getPlayerPointsPerGame
 
-int Node<Player>::getPlayerReboundsPerGame() const
-{
- return nodePlayer->getReboundsPerGame();
+int Node<Player>::getPlayerReboundsPerGame() const {
+  return nodePlayer->getReboundsPerGame();
 } // end getPlayerReboundsPerGame
 
-int Node<Player>::getPlayerAssistsPerGame() const
-{
- return nodePlayer->getAssistsPerGame();
+int Node<Player>::getPlayerAssistsPerGame() const {
+  return nodePlayer->getAssistsPerGame();
 } // end getPlayerAssistsPerGame
  
-Node<Player>* Node<Player>::getNext() const
-{
- return next;
+Node<Player>* Node<Player>::getNext() const {
+  return next;
 } // end getNext 

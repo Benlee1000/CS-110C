@@ -32,8 +32,7 @@ public:
   virtual ~LinkedSortedList(); 
   void insertSorted(const Player& newEntry);
   bool removeSorted(const Player& anEntry);
-  int getPosition(const PLayer& newEntry) const;
-  // The following methods are the same as given in ListInterface:
+  int getPositionOfPlayer(const string& player) const;
   bool isEmpty() const;
   int getLength() const;
   bool remove(int position);
