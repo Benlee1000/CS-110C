@@ -56,9 +56,9 @@ LinkedSortedList<Player>::LinkedSortedList(const LinkedSortedList<Player>& aList
   headPtr = copyChain(aList.headPtr); 
 } // end copy constructor
 
-void LinkedSortedList<Player>::insertSorted(const Player& newEntry) {
-  Node<Player>* newNodePtr = new Node<Player>(newEntry);
-  Node<Player>* prevPtr = getNodeBefore(newEntry);
+void LinkedSortedList<Player>::insertSorted(const string& player, const string& teamName, const int pointsPerGame, const int reboundsPerGame, const int assistsPerGame) {
+  Node<Player>* newNodePtr = new Node<Player>(player, teamName, pointsPerGame, reboundPerGame, assistsPerGame);
+  Node<Player>* prevPtr = getNodeBefore(player);
 
   if (isEmpty() || (prevPtr == nullptr)) { //add at beginning
     newNodePtr->setNext(headPtr);
