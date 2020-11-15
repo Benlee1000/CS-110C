@@ -78,7 +78,7 @@ bool LinkedSortedList<Player>::removeSorted(const string& player) {
 } // end removeSorted
 
 int LinkedSortedList<Player>::getPositionOfPlayer(const string& player) {
-  for(int position = 1, position <= getLength(); position++) {
+  for(int position = 1; position <= getLength(); position++) {
     if((getEntry(position)->getName()) == player) {
       return position;
     }
@@ -99,18 +99,18 @@ bool LinkedSortedList<Player>::remove(int position) {
   if (ableToRemove) {
     Node<Player>* curPtr = nullptr;
     if (position == 1) {
-    // Remove the first node in the chain
-    curPtr = headPtr; // Save pointer to node
-    headPtr = headPtr->getNext();
+      // Remove the first node in the chain
+      curPtr = headPtr; // Save pointer to node
+      headPtr = headPtr->getNext();
     }
     else {
-    // Find node that is before the one to delete
-    Node<Player>* prevPtr = getNodeAt(position - 1);
-    // Point to node to delete
-    curPtr = prevPtr->getNext();
-    // Disconnect indicated node from chain by connecting the
-    // prior node with the one after
-    prevPtr->setNext(curPtr->getNext());
+      // Find node that is before the one to delete
+      Node<Player>* prevPtr = getNodeAt(position - 1);
+      // Point to node to delete
+      curPtr = prevPtr->getNext();
+      // Disconnect indicated node from chain by connecting the
+      // prior node with the one after
+      prevPtr->setNext(curPtr->getNext());
     } // end else
 
     // Return node to system
@@ -120,7 +120,7 @@ bool LinkedSortedList<Player>::remove(int position) {
     curPtr = nullptr;
 
     itemCount–-; // Decrease count of entries
-    } // end if
+  } // end if
 
   return ableToRemove;
 } // end remove 
